@@ -4,13 +4,105 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { personalInfo } from '@/config/personal'
 import BlogPosts from './BlogPosts'
+import { useState } from 'react'
+import { Icon } from '@iconify/react'
 
-const TechIcon = ({ name, className = "" }: { name: string, className?: string }) => (
+const TechIcon = ({ name, iconName }: { name: string, iconName: string }) => (
   <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-700/50 text-xs font-medium text-gray-700 dark:text-gray-300">
-    <span className={`w-3.5 h-3.5 ${className}`} />
+    <Icon icon={iconName} className="w-3.5 h-3.5" />
     {name}
   </div>
 )
+
+const TechStackSection = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div className="mt-6 border-t border-gray-100 dark:border-gray-700 pt-4">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center justify-between w-full text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+      >
+        <div className="flex items-center gap-2">
+          <svg className="w-4 h-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Tech Stack
+        </div>
+        <svg
+          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <div className={`space-y-4 mt-4 ${isOpen ? 'block' : 'hidden'}`}>
+        <div>
+          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Frontend</h4>
+          <div className="flex flex-wrap gap-2">
+            <TechIcon name="Nuxt.js" iconName="logos:nuxt-icon" />
+            <TechIcon name="Tailwind CSS" iconName="logos:tailwindcss-icon" />
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Backend</h4>
+          <div className="flex flex-wrap gap-2">
+            <TechIcon name="Node.js" iconName="logos:nodejs-icon" />
+            <TechIcon name="Fastify" iconName="simple-icons:fastify" />
+            <TechIcon name="gRPC" iconName="logos:grpc" />
+            <TechIcon name="RESTful" iconName="eos-icons:api" />
+            <TechIcon name="WebSocket" iconName="logos:websocket" />
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Database / Cache</h4>
+          <div className="flex flex-wrap gap-2">
+            <TechIcon name="MongoDB" iconName="logos:mongodb-icon" />
+            <TechIcon name="MongoDB ReplicaSet" iconName="logos:mongodb-icon" />
+            <TechIcon name="Redis" iconName="logos:redis" />
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Container & Orchestration</h4>
+          <div className="flex flex-wrap gap-2">
+            <TechIcon name="Docker" iconName="logos:docker-icon" />
+            <TechIcon name="Docker Swarm" iconName="logos:docker-icon" />
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Monitoring & Management</h4>
+          <div className="flex flex-wrap gap-2">
+            <TechIcon name="Grafana" iconName="logos:grafana" />
+            <TechIcon name="Portainer" iconName="simple-icons:portainer" />
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Version Control & CI/CD</h4>
+          <div className="flex flex-wrap gap-2">
+            <TechIcon name="GitLab" iconName="logos:gitlab" />
+            <TechIcon name="Forge" iconName="simple-icons:forge" />
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Testing</h4>
+          <div className="flex flex-wrap gap-2">
+            <TechIcon name="Jest" iconName="logos:jest" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function ContentSection() {
   return (
@@ -29,7 +121,7 @@ export default function ContentSection() {
         <div className="grid gap-4">
           {personalInfo.projects.map((project) => (
             <div key={project.name} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
-              <div className="flex items-center space-x-6 mb-6">
+              <div className="flex items-center space-x-6">
                 <div className="flex-shrink-0 w-16 h-16 relative">
                   <Image
                     src={project.logo}
@@ -50,100 +142,7 @@ export default function ContentSection() {
                 </div>
               </div>
 
-              {/* Technology Stack */}
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-                    <svg className="w-4 h-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    Frontend Technologies
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    <TechIcon name="Nuxt.js" className="i-logos-nuxt-icon" />
-                    <TechIcon name="Tailwind CSS" className="i-logos-tailwindcss-icon" />
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-                    <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-                    </svg>
-                    Backend Technologies
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    <TechIcon name="Node.js" className="i-logos-nodejs-icon" />
-                    <TechIcon name="Fastify" className="i-logos-fastify-icon" />
-                    <TechIcon name="gRPC" className="i-logos-grpc" />
-                    <TechIcon name="RESTful" className="i-logos-rest" />
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-                    <svg className="w-4 h-4 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-                    </svg>
-                    Database / Cache
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    <TechIcon name="MongoDB" className="i-logos-mongodb-icon" />
-                    <TechIcon name="Redis" className="i-logos-redis" />
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-                    <svg className="w-4 h-4 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                    </svg>
-                    Container & Orchestration
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    <TechIcon name="Docker" className="i-logos-docker-icon" />
-                    <TechIcon name="Docker Swarm" className="i-logos-docker-icon" />
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-                    <svg className="w-4 h-4 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
-                    Monitoring & Management
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    <TechIcon name="Grafana" className="i-logos-grafana" />
-                    <TechIcon name="Portainer" className="i-logos-portainer" />
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-                    <svg className="w-4 h-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
-                    Version Control & CI/CD
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    <TechIcon name="GitLab" className="i-logos-gitlab" />
-                    <TechIcon name="Forge" className="i-logos-forge" />
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-                    <svg className="w-4 h-4 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Testing Framework
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    <TechIcon name="Jest" className="i-logos-jest" />
-                  </div>
-                </div>
-              </div>
+              <TechStackSection />
             </div>
           ))}
         </div>
