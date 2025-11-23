@@ -14,7 +14,7 @@ export default function ProfileSection() {
       <div className="flex flex-col items-center">
         <div className="relative w-32 h-32 mb-4">
           <Image
-            src="/profile.jpg"
+            src="/pp.png"
             alt={personalInfo.name}
             fill
             className="rounded-full object-cover ring-4 ring-gray-100 dark:ring-gray-700"

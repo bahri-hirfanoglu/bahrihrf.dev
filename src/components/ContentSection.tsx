@@ -81,6 +81,7 @@ const TechStackSection = () => {
           <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Monitoring & Management</h4>
           <div className="flex flex-wrap gap-2">
             <TechIcon name="Grafana" iconName="logos:grafana" />
+            <TechIcon name="Prometheus" iconName="logos:prometheus" />
             <TechIcon name="Portainer" iconName="simple-icons:portainer" />
           </div>
         </div>
