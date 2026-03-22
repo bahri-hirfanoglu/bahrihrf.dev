@@ -14,7 +14,7 @@ const TechIcon = ({ name, iconName }: { name: string, iconName: string }) => (
   </div>
 )
 
-const TechStackSection = () => {
+const TechStackSection = ({ techStack }: { techStack: Record<string, ReadonlyArray<{ name: string, icon: string }>> }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -41,65 +41,16 @@ const TechStackSection = () => {
       </button>
 
       <div className={`space-y-4 mt-4 ${isOpen ? 'block' : 'hidden'}`}>
-        <div>
-          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Frontend</h4>
-          <div className="flex flex-wrap gap-2">
-            <TechIcon name="Nuxt.js" iconName="logos:nuxt-icon" />
-            <TechIcon name="Tailwind CSS" iconName="logos:tailwindcss-icon" />
+        {Object.entries(techStack).map(([category, items]) => (
+          <div key={category}>
+            <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">{category}</h4>
+            <div className="flex flex-wrap gap-2">
+              {items.map((tech) => (
+                <TechIcon key={tech.name} name={tech.name} iconName={tech.icon} />
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div>
-          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Backend</h4>
-          <div className="flex flex-wrap gap-2">
-            <TechIcon name="Node.js" iconName="logos:nodejs-icon" />
-            <TechIcon name="Fastify" iconName="simple-icons:fastify" />
-            <TechIcon name="gRPC" iconName="logos:grpc" />
-            <TechIcon name="RESTful" iconName="eos-icons:api" />
-            <TechIcon name="WebSocket" iconName="logos:websocket" />
-          </div>
-        </div>
-
-        <div>
-          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Database / Cache</h4>
-          <div className="flex flex-wrap gap-2">
-            <TechIcon name="MongoDB" iconName="logos:mongodb-icon" />
-            <TechIcon name="MongoDB ReplicaSet" iconName="logos:mongodb-icon" />
-            <TechIcon name="Redis" iconName="logos:redis" />
-          </div>
-        </div>
-
-        <div>
-          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Container & Orchestration</h4>
-          <div className="flex flex-wrap gap-2">
-            <TechIcon name="Docker" iconName="logos:docker-icon" />
-            <TechIcon name="Docker Swarm" iconName="logos:docker-icon" />
-          </div>
-        </div>
-
-        <div>
-          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Monitoring & Management</h4>
-          <div className="flex flex-wrap gap-2">
-            <TechIcon name="Grafana" iconName="logos:grafana" />
-            <TechIcon name="Prometheus" iconName="logos:prometheus" />
-            <TechIcon name="Portainer" iconName="simple-icons:portainer" />
-          </div>
-        </div>
-
-        <div>
-          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Version Control & CI/CD</h4>
-          <div className="flex flex-wrap gap-2">
-            <TechIcon name="GitLab" iconName="logos:gitlab" />
-            <TechIcon name="Forge" iconName="simple-icons:forge" />
-          </div>
-        </div>
-
-        <div>
-          <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Testing</h4>
-          <div className="flex flex-wrap gap-2">
-            <TechIcon name="Jest" iconName="logos:jest" />
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   )
@@ -143,7 +94,7 @@ export default function ContentSection() {
                 </div>
               </div>
 
-              <TechStackSection />
+              <TechStackSection techStack={project.techStack} />
             </div>
           ))}
         </div>
