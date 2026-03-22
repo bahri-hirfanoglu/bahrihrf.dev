@@ -14,6 +14,12 @@ export const personalInfo = {
       url: 'https://altinmetre.com',
       description: 'The project aims to provide users with the most affordable and up-to-date gold prices, helping them make informed decisions in foreign exchange and crypto markets with transparent and real-time data.',
       logo: '/projects/altinmetre-logo.svg'
+    },
+    {
+      name: 'claude-board',
+      url: 'https://github.com/bahri-hirfanoglu/claude-board',
+      description: 'Self-hosted Kanban board that turns tasks into working code using Claude CLI — live terminal, auto-queue, review & approve.',
+      logo: '/projects/claude-board-icon.png'
     }
   ],
   recommendations: {
