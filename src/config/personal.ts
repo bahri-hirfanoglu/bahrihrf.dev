@@ -51,7 +51,7 @@ export const personalInfo = {
     },
     {
       name: 'Claude Board',
-      url: 'https://github.com/bahri-hirfanoglu/claude-board',
+      url: 'https://claboard.dev',
       description: 'Self-hosted Kanban board that turns tasks into working code using Claude CLI — live terminal, auto-queue, review & approve.',
       logo: '/projects/claude-board-icon.png',
       techStack: {
@@ -61,18 +61,21 @@ export const personalInfo = {
           { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon' },
         ],
         'Backend': [
-          { name: 'Node.js', icon: 'logos:nodejs-icon' },
-          { name: 'Express', icon: 'simple-icons:express' },
-          { name: 'Socket.IO', icon: 'simple-icons:socketdotio' },
+          { name: 'Rust', icon: 'logos:rust', iconClass: 'invert' },
+          { name: 'Axum', icon: 'simple-icons:rust' },
+          { name: 'Tokio', icon: 'simple-icons:rust' },
+        ],
+        'Desktop': [
+          { name: 'Tauri', icon: 'simple-icons:tauri' },
         ],
         'Database': [
           { name: 'SQLite', icon: 'simple-icons:sqlite' },
         ],
-        'Desktop': [
-          { name: 'Electron', icon: 'logos:electron' },
+        'AI / MCP': [
+          { name: 'MCP SDK', icon: 'simple-icons:anthropic' },
         ],
-        'Container': [
-          { name: 'Docker', icon: 'logos:docker-icon' },
+        'Testing': [
+          { name: 'Vitest', icon: 'logos:vitest' },
         ],
       }
     }
