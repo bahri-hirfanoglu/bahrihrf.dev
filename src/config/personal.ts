@@ -78,6 +78,34 @@ export const personalInfo = {
           { name: 'Vitest', icon: 'logos:vitest' },
         ],
       }
+    },
+    {
+      name: 'wmux',
+      url: 'https://github.com/bahri-hirfanoglu/wmux',
+      description: 'A native Windows terminal multiplexer — tmux for Windows. Create persistent terminal sessions that survive terminal closures, with pane splitting, detach/reattach, and tmux-style keybindings using ConPTY and Named Pipes.',
+      logo: '/projects/wmux-icon.svg',
+      techStack: {
+        'Language': [
+          { name: 'Rust', icon: 'logos:rust', iconClass: 'invert' },
+        ],
+        'Async Runtime': [
+          { name: 'Tokio', icon: 'simple-icons:rust' },
+        ],
+        'CLI': [
+          { name: 'Clap', icon: 'simple-icons:rust' },
+        ],
+        'Platform': [
+          { name: 'Windows API (ConPTY)', icon: 'logos:microsoft-windows-icon' },
+          { name: 'Named Pipes', icon: 'logos:microsoft-windows-icon' },
+        ],
+        'Serialization & Config': [
+          { name: 'Serde', icon: 'simple-icons:rust' },
+          { name: 'TOML', icon: 'simple-icons:toml' },
+        ],
+        'Observability': [
+          { name: 'Tracing', icon: 'simple-icons:rust' },
+        ],
+      }
     }
   ],
   recommendations: {
