@@ -7,31 +7,23 @@ import BlogPosts from './BlogPosts'
 import { useState } from 'react'
 import { Icon } from '@iconify/react'
 
-const TechIcon = ({ name, iconName }: { name: string, iconName: string }) => (
-  <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-700/50 text-xs font-medium text-gray-700 dark:text-gray-300">
-    <Icon icon={iconName} className="w-3.5 h-3.5" />
-    {name}
-  </div>
-)
-
 const TechStackSection = ({ techStack }: { techStack: Record<string, ReadonlyArray<{ name: string, icon: string }>> }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const allTechs = Object.values(techStack).flat()
 
   return (
-    <div className="mt-6 border-t border-gray-100 dark:border-gray-700 pt-4">
+    <div className="mt-3 border-t border-gray-100 dark:border-gray-700 pt-3">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+        className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
       >
-        <div className="flex items-center gap-2">
-          <svg className="w-4 h-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-          Tech Stack
-        </div>
+        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <span>{allTechs.length} technologies</span>
         <svg
-          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -40,18 +32,32 @@ const TechStackSection = ({ techStack }: { techStack: Record<string, ReadonlyArr
         </svg>
       </button>
 
-      <div className={`space-y-4 mt-4 ${isOpen ? 'block' : 'hidden'}`}>
-        {Object.entries(techStack).map(([category, items]) => (
-          <div key={category}>
-            <h4 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">{category}</h4>
-            <div className="flex flex-wrap gap-2">
-              {items.map((tech) => (
-                <TechIcon key={tech.name} name={tech.name} iconName={tech.icon} />
-              ))}
+      {!isOpen && (
+        <div className="flex flex-wrap gap-1 mt-2">
+          {allTechs.slice(0, 6).map((tech) => (
+            <div key={tech.name} className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-700/50 text-[10px] text-gray-600 dark:text-gray-400">
+              <Icon icon={tech.icon} className="w-3 h-3" />
+              {tech.name}
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+          {allTechs.length > 6 && (
+            <div className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-700/50 text-[10px] text-gray-500 dark:text-gray-400">
+              +{allTechs.length - 6}
+            </div>
+          )}
+        </div>
+      )}
+
+      {isOpen && (
+        <div className="flex flex-wrap gap-1.5 mt-2">
+          {allTechs.map((tech) => (
+            <div key={tech.name} className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-700/50 text-[10px] font-medium text-gray-600 dark:text-gray-300">
+              <Icon icon={tech.icon} className="w-3 h-3" />
+              {tech.name}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
@@ -70,11 +76,11 @@ export default function ContentSection() {
       {/* Projects Section */}
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Projects</h2>
-        <div className="grid gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {personalInfo.projects.map((project) => (
-            <div key={project.name} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
-              <div className="flex items-center space-x-6">
-                <div className="flex-shrink-0 w-16 h-16 relative">
+            <div key={project.name} className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-10 h-10 relative">
                   <Image
                     src={project.logo}
                     alt={`${project.name} logo`}
@@ -83,12 +89,12 @@ export default function ContentSection() {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-lg font-semibold mb-2">
+                  <h3 className="text-sm font-semibold leading-tight">
                     <Link href={project.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                       {project.name}
                     </Link>
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 text-xs leading-relaxed mt-1 line-clamp-2">
                     {project.description}
                   </p>
                 </div>
