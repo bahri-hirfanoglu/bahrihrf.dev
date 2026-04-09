@@ -110,7 +110,7 @@ export const personalInfo = {
     {
       name: 'mcpify',
       url: 'https://github.com/bahri-hirfanoglu/mcpify',
-      description: 'Herhangi bir OpenAPI/Swagger tanımından saniyeler içinde MCP sunucusu oluşturan komut satırı aracı. Yapay zekâ asistanlarının REST API\'lerle anında etkileşim kurmasını sağlar.',
+      description: 'Generate an MCP server from any OpenAPI spec. Let AI assistants interact with your REST APIs instantly.',
       logo: '/projects/mcpify-logo.png',
       techStack: {
         'Dil': [
