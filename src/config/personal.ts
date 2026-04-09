@@ -107,6 +107,28 @@ export const personalInfo = {
         ],
       }
     }
+    {
+      name: 'mcpify',
+      url: 'https://github.com/bahri-hirfanoglu/mcpify',
+      description: 'Herhangi bir OpenAPI/Swagger tanımından saniyeler içinde MCP sunucusu oluşturan komut satırı aracı. Yapay zekâ asistanlarının REST API\'lerle anında etkileşim kurmasını sağlar.',
+      logo: '/projects/mcpify-logo.png',
+      techStack: {
+        'Dil': [
+          { name: 'TypeScript', icon: 'logos:typescript-icon' },
+        ],
+        'Çalışma Zamanı': [
+          { name: 'Node.js', icon: 'logos:nodejs-icon' },
+        ],
+        'Çekirdek': [
+          { name: 'MCP SDK', icon: 'simple-icons:anthropic' },
+          { name: 'Swagger Parser', icon: 'logos:swagger' },
+          { name: 'Commander.js', icon: 'logos:nodejs-icon' },
+        ],
+        'Test': [
+          { name: 'Vitest', icon: 'logos:vitest' },
+        ],
+      }
+    }
   ],
   recommendations: {
     books: [
