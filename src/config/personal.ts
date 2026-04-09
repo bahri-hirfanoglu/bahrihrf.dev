@@ -106,7 +106,7 @@ export const personalInfo = {
           { name: 'Tracing', icon: 'simple-icons:rust' },
         ],
       }
-    }
+    },
     {
       name: 'mcpify',
       url: 'https://github.com/bahri-hirfanoglu/mcpify',
