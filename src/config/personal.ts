@@ -128,6 +128,95 @@ export const personalInfo = {
           { name: 'Vitest', icon: 'logos:vitest' },
         ],
       }
+    },
+    {
+      name: 'iletiniz.com',
+      url: 'https://iletiniz.com',
+      description: 'A multi-service SMS/OTP and communication platform: Next.js web & admin apps, a NestJS API, a Go CDN, background workers and WordPress/Shopify integrations, all running on a self-managed Kubernetes cluster.',
+      techStack: {
+        'Frontend': [
+          { name: 'Next.js', icon: 'logos:nextjs-icon' },
+          { name: 'React', icon: 'logos:react' },
+          { name: 'TypeScript', icon: 'logos:typescript-icon' },
+          { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon' },
+        ],
+        'Backend': [
+          { name: 'NestJS', icon: 'logos:nestjs' },
+          { name: 'Node.js', icon: 'logos:nodejs-icon' },
+          { name: 'Go', icon: 'logos:go' },
+          { name: 'Swagger', icon: 'logos:swagger' },
+        ],
+        'Database / Cache': [
+          { name: 'MySQL', icon: 'logos:mysql-icon' },
+          { name: 'Redis', icon: 'logos:redis' },
+          { name: 'Drizzle ORM', icon: 'simple-icons:drizzle' },
+        ],
+        'Integrations': [
+          { name: 'WordPress', icon: 'logos:wordpress-icon' },
+          { name: 'Shopify', icon: 'logos:shopify' },
+        ],
+        'DevOps & Platform': [
+          { name: 'Kubernetes', icon: 'logos:kubernetes' },
+          { name: 'Docker', icon: 'logos:docker-icon' },
+          { name: 'Traefik', icon: 'simple-icons:traefikproxy' },
+          { name: 'ArgoCD', icon: 'simple-icons:argo' },
+          { name: 'Harbor', icon: 'simple-icons:harbor' },
+          { name: 'Vault', icon: 'logos:vault' },
+          { name: 'GitLab', icon: 'logos:gitlab' },
+          { name: 'Cloudflare', icon: 'logos:cloudflare' },
+          { name: 'MinIO', icon: 'simple-icons:minio' },
+        ],
+        'Monitoring': [
+          { name: 'Prometheus', icon: 'logos:prometheus' },
+          { name: 'Grafana', icon: 'logos:grafana' },
+          { name: 'Loki', icon: 'simple-icons:grafana' },
+        ],
+        'Testing': [
+          { name: 'Vitest', icon: 'logos:vitest' },
+          { name: 'Playwright', icon: 'logos:playwright' },
+        ],
+      }
+    },
+    {
+      name: 'wpotp.com',
+      url: 'https://wpotp.com',
+      description: 'WP OTP — an OTP/2FA verification platform for WordPress. Built from a Next.js web & admin, a NestJS API, a dedicated OTP service and a mail service, deployed on the same Kubernetes platform.',
+      techStack: {
+        'Frontend': [
+          { name: 'Next.js', icon: 'logos:nextjs-icon' },
+          { name: 'React', icon: 'logos:react' },
+          { name: 'TypeScript', icon: 'logos:typescript-icon' },
+        ],
+        'Backend': [
+          { name: 'NestJS', icon: 'logos:nestjs' },
+          { name: 'Node.js', icon: 'logos:nodejs-icon' },
+          { name: 'Swagger', icon: 'logos:swagger' },
+        ],
+        'Database / Cache': [
+          { name: 'MySQL', icon: 'logos:mysql-icon' },
+          { name: 'Redis', icon: 'logos:redis' },
+          { name: 'Prisma', icon: 'logos:prisma' },
+        ],
+        'Integrations': [
+          { name: 'WordPress', icon: 'logos:wordpress-icon' },
+        ],
+        'DevOps & Platform': [
+          { name: 'Kubernetes', icon: 'logos:kubernetes' },
+          { name: 'Docker', icon: 'logos:docker-icon' },
+          { name: 'Traefik', icon: 'simple-icons:traefikproxy' },
+          { name: 'ArgoCD', icon: 'simple-icons:argo' },
+          { name: 'Harbor', icon: 'simple-icons:harbor' },
+          { name: 'Vault', icon: 'logos:vault' },
+          { name: 'GitLab', icon: 'logos:gitlab' },
+          { name: 'Cloudflare', icon: 'logos:cloudflare' },
+          { name: 'MinIO', icon: 'simple-icons:minio' },
+        ],
+        'Monitoring': [
+          { name: 'Prometheus', icon: 'logos:prometheus' },
+          { name: 'Grafana', icon: 'logos:grafana' },
+          { name: 'Loki', icon: 'simple-icons:grafana' },
+        ],
+      }
     }
   ],
   recommendations: {

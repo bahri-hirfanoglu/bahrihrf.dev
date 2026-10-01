@@ -80,14 +80,16 @@ export default function ContentSection() {
           {personalInfo.projects.map((project) => (
             <div key={project.name} className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
               <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-10 h-10 relative">
-                  <Image
-                    src={project.logo}
-                    alt={`${project.name} logo`}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
+                {'logo' in project && project.logo && (
+                  <div className="flex-shrink-0 w-10 h-10 relative">
+                    <Image
+                      src={project.logo}
+                      alt={`${project.name} logo`}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                )}
                 <div className="flex-1 min-w-0">
                   <h3 className="text-sm font-semibold leading-tight">
                     <Link href={project.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
