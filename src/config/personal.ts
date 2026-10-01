@@ -133,6 +133,7 @@ export const personalInfo = {
       name: 'iletiniz.com',
       url: 'https://iletiniz.com',
       description: 'A multi-service SMS/OTP and communication platform: Next.js web & admin apps, a NestJS API, a Go CDN, background workers and WordPress/Shopify integrations, all running on a self-managed Kubernetes cluster.',
+      logo: '/projects/iletiniz-icon.svg',
       techStack: {
         'Frontend': [
           { name: 'Next.js', icon: 'logos:nextjs-icon' },
@@ -181,6 +182,7 @@ export const personalInfo = {
       name: 'wpotp.com',
       url: 'https://wpotp.com',
       description: 'WP OTP — an OTP/2FA verification platform for WordPress. Built from a Next.js web & admin, a NestJS API, a dedicated OTP service and a mail service, deployed on the same Kubernetes platform.',
+      logo: '/projects/wpotp-icon.svg',
       techStack: {
         'Frontend': [
           { name: 'Next.js', icon: 'logos:nextjs-icon' },

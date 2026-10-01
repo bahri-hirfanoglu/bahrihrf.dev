@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-label="iletiniz">
+  <title>iletiniz favicon — maskable / apple-touch</title>
+  <!-- Tam dolgu turuncu zemin (iOS köşeleri kendi yuvarlatır, Android maskeler) -->
+  <rect width="192" height="192" fill="#EF6C22"/>
+  <!-- Logo işareti güvenli alan içinde ortalı, beyaz -->
+  <g transform="translate(47.2 38.9) scale(1.19)">
+    <rect x="6" y="6" width="70" height="60" rx="15" fill="#FFFFFF"/>
+    <path d="M22 46L52 62L22 90Z" fill="#FFFFFF"/>
+    <circle cx="24" cy="36" r="7.5" fill="#EF6C22"/>
+    <circle cx="41" cy="36" r="7.5" fill="#EF6C22"/>
+    <circle cx="58" cy="36" r="7.5" fill="#EF6C22"/>
+  </g>
+</svg>
